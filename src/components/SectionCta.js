@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-import { htmlToReact } from '../utils';
+import { htmlToReact,markdownify } from '../utils';
 import CtaButtons from './CtaButtons';
 
 export default class SectionCta extends React.Component {
@@ -11,6 +11,7 @@ export default class SectionCta extends React.Component {
         const title = _.get(section, 'title');
         const subtitle = _.get(section, 'subtitle');
         const actions = _.get(section, 'actions');
+        const content = _.get(section, 'content');
 
         return (
             <section id={sectionId} className="block cta-block bg-accent outer">
@@ -19,6 +20,7 @@ export default class SectionCta extends React.Component {
                         <div className="cell block-content">
                             {title && <h2 className="block-title">{title}</h2>}
                             {subtitle && <p className="block-copy">{htmlToReact(subtitle)}</p>}
+                            {markdownify(content)}
                         </div>
                         {actions && (
                             <div className="cell block-buttons">

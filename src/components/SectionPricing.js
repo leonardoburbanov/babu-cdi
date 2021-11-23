@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 import { htmlToReact, classNames, markdownify } from '../utils';
 import CtaButtons from './CtaButtons';
+import Calendly from './Calendly';
 
 export default class SectionPricing extends React.Component {
     renderPricingPlan(plan, index) {
@@ -51,6 +52,7 @@ export default class SectionPricing extends React.Component {
                         <div className="grid">{_.map(pricingPlans, (plan, index) => this.renderPricingPlan(plan, index))}</div>
                     </div>
                 )}
+            <Calendly/>
             </section>
         );
     }
